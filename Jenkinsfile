@@ -21,12 +21,5 @@ pipeline {
         }
       }
     }
-    stage('Run Docker Image') {
-      steps {
-        container('docker') {  
-          sh "docker run -it ovchatcha/promo-app:dev"
-        }
-      }
-    }
   }
 }
