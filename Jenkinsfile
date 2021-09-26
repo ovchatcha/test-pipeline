@@ -17,8 +17,14 @@ pipeline {
       steps {
         container('docker') {  
           sh "docker build -t ovchatcha/promo-app:dev ."  // when we run docker in this step, we're running it via a shell on the docker build-pod container, 
-          sh "docker run -it ovchatcha/promo-app:dev"
 //         sh "docker push ovchatcha/promo-app:dev"        // which is just connecting to the host docker deaemon
+        }
+      }
+    }
+    stage('Run Docker Image') {
+      steps {
+        container('docker') {  
+          sh "docker run -it ovchatcha/promo-app:dev"
         }
       }
     }
